@@ -17,35 +17,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Enhanced navbar scroll effect with hide/show
+// Enhanced navbar scroll effect (shadow only)
 const nav = document.querySelector('.nav');
-let lastScroll = 0;
-let scrollTimeout;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
-    // Update shadow
     if (currentScroll > 100) {
         nav.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
     } else {
         nav.style.boxShadow = 'none';
     }
-    
-    // Hide/show navbar on scroll
-    clearTimeout(scrollTimeout);
-    
-    if (currentScroll > lastScroll && currentScroll > 200) {
-        nav.classList.add('hidden');
-    } else {
-        nav.classList.remove('hidden');
-    }
-    
-    scrollTimeout = setTimeout(() => {
-        nav.classList.remove('hidden');
-    }, 1000);
-    
-    lastScroll = currentScroll;
 });
 
 // Advanced Intersection Observer with stagger effect
@@ -160,19 +141,18 @@ const navLinks = document.querySelectorAll('.nav-menu a');
 
 window.addEventListener('scroll', () => {
     let current = '';
-    
+
     sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 200) {
+        if (pageYOffset >= section.offsetTop - 200) {
             current = section.getAttribute('id');
         }
     });
-    
+
     navLinks.forEach(link => {
+        link.classList.remove('active');
         link.style.color = '';
         if (link.getAttribute('href') === `#${current}`) {
-            link.style.color = 'var(--black)';
+            link.classList.add('active');
         }
     });
 });
