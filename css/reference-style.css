@@ -238,9 +238,9 @@ body {
 }
 
 /* Button Tooltip for icon-only buttons */
-.project-buttons .btn-primary[title]:hover::after,
-.project-buttons .btn-secondary[title]:hover::after {
-    content: attr(title);
+.project-buttons .btn-primary[data-title]:hover::after,
+.project-buttons .btn-secondary[data-title]:hover::after {
+    content: attr(data-title);
     position: absolute;
     bottom: -2.5rem;
     left: 50%;
@@ -478,7 +478,7 @@ section {
 .project-image {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 300px;
     overflow: hidden;
     background: var(--gray-100);
     cursor: pointer;
@@ -490,24 +490,30 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: grayscale(100%);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s ease;
 }
 
-.project-card:hover .placeholder-image {
-    transform: scale(1.05);
-}
+
 
 .project-image img {
     width: 100%;
-    height: 100%;
+    height: 100%; /* Fixed height to 100% instead of 300% */
     object-fit: cover;
     display: block;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: grayscale(100%); /* Initial state is black and white */
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s ease;
 }
 
-.project-card:hover img {
-    transform: scale(1.05);
+.project-image:hover img {
+    filter: grayscale(0%); /* Revert to color on hover */
 }
+
+.project-image:hover .placeholder-image {
+    filter: grayscale(0%); /* Revert to color on hover */
+}
+
+
 
 .project-info {
     display: flex;
