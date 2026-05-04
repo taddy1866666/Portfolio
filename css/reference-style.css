@@ -185,62 +185,76 @@ body {
 
 .btn-primary,
 .btn-secondary {
-    padding: 0.5rem 1.25rem;
-    font-size: 0.75rem;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 6px;
     border: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    justify-content: center;
+    gap: 0.5rem;
     cursor: pointer;
-    transition: color 0.3s, background 0.3s;
-    transition-delay: 0.05s;
+    transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
 }
 
-.btn-primary::before,
-.btn-secondary::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: var(--black);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-    z-index: -1;
+/* Icon-only buttons in project cards */
+.project-buttons .btn-primary,
+.project-buttons .btn-secondary {
+    padding: 0.6rem;
+    width: 40px;
+    height: 40px;
 }
 
 .btn-primary {
     background: var(--black);
     color: var(--white);
-    border-radius: 4px;
-    padding: 0.75rem 1.75rem;
-    font-size: 0.8rem;
-    transition: none;
 }
 
 .btn-primary:hover {
-    background: var(--black);
-    box-shadow: none;
-    cursor: default;
+    background: var(--gray-800);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary svg,
+.btn-secondary svg {
+    width: 16px;
+    height: 16px;
 }
 
 .btn-secondary {
     background: var(--gray-100);
-    color: var(--gray-400);
+    color: var(--black);
 }
 
 .btn-secondary:hover {
+    background: var(--gray-200);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Tooltip for icon-only buttons */
+.project-buttons .btn-primary[title]:hover::after,
+.project-buttons .btn-secondary[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
     background: var(--black);
     color: var(--white);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    letter-spacing: 0.05em;
 }
 
 .scroll-indicator {
@@ -551,6 +565,12 @@ section {
     color: var(--gray-600);
     line-height: 1.8;
     max-width: 600px;
+}
+
+.project-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 /* Contact Section */
