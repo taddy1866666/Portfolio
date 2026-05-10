@@ -34,59 +34,6 @@ body {
     width: 100%;
 }
 
-/* Navigation */
-.nav {
-    position: sticky;
-    top: 2rem;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--gray-200);
-    border-radius: 50px;
-    max-width: fit-content;
-    width: fit-content;
-    margin: 2rem auto 0;
-    z-index: 100;
-    padding: 0.25rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.nav-container {
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 0.25rem;
-}
-
-.nav-menu a {
-    color: var(--gray-400);
-    text-decoration: none;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.nav-menu a:hover {
-    color: var(--white);
-    background: var(--black);
-}
-
-.nav-menu a.active {
-    color: var(--white);
-    background: var(--black);
-    font-weight: 600;
-}
-
 /* Hero Section */
 .hero {
     min-height: 100vh;
@@ -880,21 +827,6 @@ section {
 @media (max-width: 480px) {
 
 
-    .nav-link span {
-        display: none;
-    }
-
-    .nav-menu {
-        padding: 0.6rem 1.25rem;
-        gap: 1.5rem;
-        width: fit-content;
-    }
-
-    .nav-link svg {
-        width: 18px;
-        height: 18px;
-    }
-    
     .hero-label,
     .about-label,
     .skills-label,
