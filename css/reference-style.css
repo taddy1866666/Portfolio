@@ -455,7 +455,7 @@ section {
     direction: rtl;
 }
 
-.project-card:nth-child(even) > * {
+.project-card:nth-child(even) .project-info {
     direction: ltr;
 }
 
@@ -464,7 +464,7 @@ section {
 .project-image {
     position: relative;
     width: 110%;
-    margin-left: -5%;
+    margin-inline-start: -5%;
     height: 310px;
     overflow: hidden;
     background: var(--gray-100);
@@ -506,7 +506,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 5rem 4rem;
+    padding: 5rem 6rem;
     justify-content: center;
 }
 
@@ -777,7 +777,7 @@ section {
     
     .project-image {
         width: 110%;
-        margin-left: -5%;
+        margin-inline-start: -5%;
         height: 310px;
     }
     
